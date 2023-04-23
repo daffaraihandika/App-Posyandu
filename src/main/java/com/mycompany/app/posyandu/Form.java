@@ -12,6 +12,8 @@ import java.awt.Color;
 import java.text.DecimalFormat;
 import javax.swing.ButtonGroup;
 import javax.swing.ButtonModel;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
 import org.bson.Document;
 
 /**
@@ -696,6 +698,23 @@ public class Form extends javax.swing.JFrame {
         }   
     }//GEN-LAST:event_BtnSubmitMouseClicked
 
+    public JTextField getTxtTglPosyandu() {
+        return TxtTglPosyandu;
+    }
+
+
+    public JTextField getTxtNamaAnak() {
+        return TxtNamaAnak;
+    }
+    
+    public JTextField getRt() {
+        return TxtRt;
+    }
+    
+    public JTextField getRw() {
+        return TxtRw;
+    }
+    
     private void BtnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSubmitActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BtnSubmitActionPerformed

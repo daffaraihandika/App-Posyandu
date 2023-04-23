@@ -85,6 +85,10 @@ public class Menu extends javax.swing.JFrame {
 
     private void BtnUpdateDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnUpdateDataMouseClicked
         // TODO add your handling code here:
+        Search search = new Search();
+        search.setVisible(true);
+        dispose();
+        search.setLocationRelativeTo(null);
     }//GEN-LAST:event_BtnUpdateDataMouseClicked
 
     private void BtnUpdateDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnUpdateDataActionPerformed
