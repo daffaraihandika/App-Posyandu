@@ -12,6 +12,7 @@ import java.awt.Color;
 import java.text.DecimalFormat;
 import javax.swing.ButtonGroup;
 import javax.swing.ButtonModel;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import org.bson.Document;
@@ -90,9 +91,10 @@ public class Form extends javax.swing.JFrame {
         TxtThnLahir = new javax.swing.JTextField();
         TxtNamaOrtu = new javax.swing.JTextField();
         jLabel32 = new javax.swing.JLabel();
-        TxtBlnLahir1 = new javax.swing.JComboBox<>();
+        ComboBoxKb = new javax.swing.JComboBox<>();
         RBtnTdkAda = new javax.swing.JRadioButton();
         RBtnAda = new javax.swing.JRadioButton();
+        btnBack = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -335,10 +337,10 @@ public class Form extends javax.swing.JFrame {
         jLabel32.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
         jLabel32.setText("Nama Orang Tua");
 
-        TxtBlnLahir1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tidak KB", "Pil", "Suntik", "Implant", "IUD" }));
-        TxtBlnLahir1.addActionListener(new java.awt.event.ActionListener() {
+        ComboBoxKb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tidak KB", "Pil", "Suntik", "Implant", "IUD" }));
+        ComboBoxKb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxtBlnLahir1ActionPerformed(evt);
+                ComboBoxKbActionPerformed(evt);
             }
         });
 
@@ -363,6 +365,19 @@ public class Form extends javax.swing.JFrame {
             }
         });
 
+        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        btnBack.setText("Back");
+        btnBack.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnBackMouseClicked(evt);
+            }
+        });
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -370,6 +385,10 @@ public class Form extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(BtnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(317, 317, 317))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(294, 294, 294)
                         .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -404,7 +423,8 @@ public class Form extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnBack))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(TxtRt, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -474,7 +494,7 @@ public class Form extends javax.swing.JFrame {
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                         .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(TxtBlnLahir1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addComponent(ComboBoxKb, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                     .addComponent(TxtBpjs, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addGap(94, 94, 94))
@@ -485,17 +505,15 @@ public class Form extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(RBtnAda, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(BtnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(317, 317, 317))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(33, 33, 33)
-                .addComponent(jLabel1)
-                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(TxtTglPosyandu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -530,10 +548,10 @@ public class Form extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(TxtNamaOrtu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel32))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(TxtBlnLahir1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ComboBoxKb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(TxtBeratLahir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -595,7 +613,7 @@ public class Form extends javax.swing.JFrame {
         String thnLahir = TxtThnLahir.getText();
         String lahir = tglLahir + " " + blnLahir + " " + thnLahir;
         String namaOrtu = TxtNamaOrtu.getText();
-        String kb = (String) TxtBlnLahir1.getSelectedItem();
+        String kb = (String) ComboBoxKb.getSelectedItem();
         
         String beratLahir = TxtBeratLahir.getText();
         String beratSkrg = TxtBeratSkrg.getText();
@@ -697,23 +715,6 @@ public class Form extends javax.swing.JFrame {
                 System.out.println("String tidak dapat dikonversi menjadi integer.");
         }   
     }//GEN-LAST:event_BtnSubmitMouseClicked
-
-    public JTextField getTxtTglPosyandu() {
-        return TxtTglPosyandu;
-    }
-
-
-    public JTextField getTxtNamaAnak() {
-        return TxtNamaAnak;
-    }
-    
-    public JTextField getRt() {
-        return TxtRt;
-    }
-    
-    public JTextField getRw() {
-        return TxtRw;
-    }
     
     private void BtnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSubmitActionPerformed
         // TODO add your handling code here:
@@ -791,9 +792,9 @@ public class Form extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_TxtNamaOrtuActionPerformed
 
-    private void TxtBlnLahir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtBlnLahir1ActionPerformed
+    private void ComboBoxKbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBoxKbActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TxtBlnLahir1ActionPerformed
+    }//GEN-LAST:event_ComboBoxKbActionPerformed
 
     private void RBtnAdaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RBtnAdaActionPerformed
         // TODO add your handling code here:
@@ -812,6 +813,18 @@ public class Form extends javax.swing.JFrame {
     private void RBtnAdaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RBtnAdaMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_RBtnAdaMouseClicked
+
+    private void btnBackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBackMouseClicked
+        // TODO add your handling code here:
+        Menu menu = new Menu();
+        menu.setVisible(true);
+        dispose();
+        menu.setLocationRelativeTo(null);
+    }//GEN-LAST:event_btnBackMouseClicked
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBackActionPerformed
 
     /**
      * @param args the command line arguments
@@ -851,13 +864,13 @@ public class Form extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnSubmit;
+    private javax.swing.JComboBox<String> ComboBoxKb;
     private javax.swing.JRadioButton RBtnAda;
     private javax.swing.JRadioButton RBtnTdkAda;
     private javax.swing.JTextField TxtAkte;
     private javax.swing.JTextField TxtBeratLahir;
     private javax.swing.JTextField TxtBeratSkrg;
     private javax.swing.JComboBox<String> TxtBlnLahir;
-    private javax.swing.JComboBox<String> TxtBlnLahir1;
     private javax.swing.JComboBox<String> TxtBlnPosyandu;
     private javax.swing.JTextField TxtBpjs;
     private javax.swing.JTextField TxtLKepala;
@@ -872,6 +885,7 @@ public class Form extends javax.swing.JFrame {
     private javax.swing.JTextField TxtThnLahir;
     private javax.swing.JTextField TxtThnPosyandu;
     private javax.swing.JTextField TxtTinggiSkrg;
+    private javax.swing.JButton btnBack;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
